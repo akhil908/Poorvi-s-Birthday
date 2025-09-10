@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script src="https://kit.fontawesome.com/a14ae32021.js" crossorigin="anonymous"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Happy Birthday Poo❤️</title>
+
+<style type="text/css">
+@font-face {
+    font-family: digit;
+    src: url('digital-7_mono.ttf') format("truetype");
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+}
+</style>
+
+<link href="css/default.css?v=4" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+
+<div id="mainDiv">
+    <div id="content">
+        <div id="code">
+            <span class="space"/><span class="comments">💕A letter from the Katapady Family💕</span><br />
+            <br> 
+            Hey Poorvi ! <br /> 
+            Do you know how special you are to US🎉<br /> 
+            <span class="comments">// If awesomeness had a name, it would definitely be YOU⭐ </span><br /> 
+            Do you know how proud we are to call you our daughter/grand daughter/sister😊<br /> 
+            <span class="comments">// Even words can’t capture how much you mean to US😘</span><br /> 
+            You are our partner-in-crime💌<br /> 
+            You are our best friend🌟<br /> 
+            You are our secret-keeper😍<br /> 
+            You are our forever cheerleader💕<br /> 
+            <br> 
+            Today isn’t just your birthday, it’s a celebration of *YOU*<br /> 
+            the laughter you bring, the kindness you show, and the way you make life brighter for everyone around you❤️;<br /> 
+            You’ve grown into such an amazing person✨<br /> 
+            and We can’t wait to see the incredible things you’ll do in the years ahead😚<br /> 
+            So here’s to you, your dreams, your happiness, and your beautiful journey🔮<br /> 
+            <br> 
+            All we want to say is:<br /> 
+            We all love you very much❤️<br /> 
+            Happy 15th Birthday!!! 🥳🎂<br /> 
+            <br>
+            Keep shining cause the world is better with you in it💕!<br />
+            Now if you want to look back into some memories, you can touch the ❤️ below 😉<br />
+
+
+            <span id="heartspan">
+                <a href="two-souls.html" id="heartLink">
+                    <i class="fas fa-heart" id="icon"></i>
+                </a>
+            </span>
+        </div>
+        <div id="loveHeart">
+            <canvas id="garden"></canvas>
+            <div id="words">
+                <div id="messages">
+                    Happy Birthday Poorvi❤️
+                    <div id="elapseClock"></div>
+                </div>
+                <div id="loveu">
+                    WE LOVE YOU❤️ <br/>
+                    <div class="signature">- yours Familia</div>
+                </div>
+            </div>
+        </div>
+        <div id="clickSound">
+            <!-- Background music file (replace bg-music.mp3 with your actual file) -->
+            <audio id="initialMusic" autoplay loop muted>
+                <source src="bg-music.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <audio id="heartMusic" loop>
+                <source src="heart-music.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 55;
+var together = new Date();
+together.setFullYear(2010, 9, 15);
+together.setHours(16);
+together.setMinutes(30);
+together.setSeconds(0);
+together.setMilliseconds(0);
+
+if (!document.createElement('canvas').getContext) {
+    var msg = document.createElement("div");
+    msg.id = "errorMsg";
+    msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+    document.body.appendChild(msg);
+    $("#code").css("display", "none")
+    $("#copyright").css("position", "absolute");
+    $("#copyright").css("bottom", "10px");
+    document.execCommand("stop");
+} else {
+    setTimeout(function () {
+        startHeartAnimation();
+    }, 5000);
+
+    timeElapse(together);
+    setInterval(function () {
+        timeElapse(together);
+    }, 500);
+
+    adjustCodePosition();
+    $("#code").typewriter();
+
+    var initialAudio = document.getElementById("initialMusic");
+    var heartAudio = document.getElementById("heartMusic");
+
+    // On first user click, unmute & play background music
+    document.body.addEventListener("click", function() {
+        if (initialAudio.muted) {
+            initialAudio.muted = false;
+            initialAudio.play().catch(e => console.log("Autoplay blocked:", e));
+        }
+    }, {once: true});
+
+    // Switch music when heart clicked
+    $("#heartLink").click(function(e) {
+        e.preventDefault();
+        initialAudio.pause();
+        heartAudio.play().catch(function(error) {
+            console.log("Heart audio playback failed: ", error);
+        });
+        // redirect after delay (optional)
+        setTimeout(() => {
+            window.location.href = "two-souls.html";
+        }, 500);
+    });
+}
+</script>
+</body>
+</html>
